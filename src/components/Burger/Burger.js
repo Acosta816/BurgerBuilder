@@ -6,14 +6,14 @@ import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 const burger = (props) => {
 
     //maple is an arbitrary name for this function that spits out an array of ingredient copies depending on it's value number {cheese: 3} would spit out 3 <BurgerIngredient type="cheese"/> components
-    function maple(ing) {
-        let myArray = [];
-        console.log(props.ingredients[ing]);
-        for(let i=0; i< props.ingredients[ing]; i++){
-            myArray.push(<BurgerIngredient key={ing + i} type={ing} />)
-        }
-        return myArray
-    }
+    // function maple(ing) {
+    //     let myArray = [];
+    //     console.log(props.ingredients[ing]);
+    //     for(let i=0; i< props.ingredients[ing]; i++){
+    //         myArray.push(<BurgerIngredient key={ing + i} type={ing} />)
+    //     }
+    //     return myArray
+    // }
 
     const ingredientsArray = Object.keys(props.ingredients)
         .map(ing => {
@@ -21,13 +21,14 @@ const burger = (props) => {
             //The number we pass in is the number value property of the ingredient (cheese: 3) in this case it's 3.
             //With the spread operator we take JUST THE EMPTY ELEMENTS of the fake array (just the guts) and insert it into the [...parent brackets]. ----> At this point it looks like this for {cheese:3}   [nothing, nothing, nothing]
             //Then we map over the pointless elements (map will make a new array) in the array and for each empty element we have, we will return a
-            //<BurgerIngredient />   
-            // return [...Array(props.ingredients[ing])].map((_, index) => {
-            //     return <BurgerIngredient key={ing + index} type={ing} />
-            // })
+            //<BurgerIngredient /> For better explanation of this, see the comment i left in this link https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/8145378#questions/10615860 
+
+            return [...Array(props.ingredients[ing])].map((_, index) => {
+                return <BurgerIngredient key={ing + index} type={ing} />
+            })
 
             //This return is another way of doing this using the maple() function i declared above
-            return maple(ing);
+            // return maple(ing);
         } )
 
         console.log(ingredientsArray)
