@@ -6,7 +6,7 @@ const layout = (props) => {
     <>
         <div>Toolbar, Sidedrawer, Backdrop</div>
         <main className={classes["Layout-Content"]}>
-            {props.children}
+            {props.children}                                {/*NOTE: BurgerBuilder will be rendered in the props.children slot */}
         </main>
     </>
    )
