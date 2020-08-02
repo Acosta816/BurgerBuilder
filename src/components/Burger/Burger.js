@@ -19,7 +19,7 @@ const burger = (props) => {
         .map(ing => {
             //creating a fake array using Array(x3) which accepts a number and returns an array of xnumber of empty elements. ---> fake array looks like this [nothing, nothing, nothing]
             //The number we pass in is the number value property of the ingredient (cheese: 3) in this case it's 3.
-            //With the spread operator we take JUST THE EMPTY ELEMENTS of the fake array and insert it into the [...parent brackets]. ----> At this point it looks like this for {cheese:3}   [nothing, nothing, nothing]
+            //With the spread operator we take JUST THE EMPTY ELEMENTS of the fake array (just the guts) and insert it into the [...parent brackets]. ----> At this point it looks like this for {cheese:3}   [nothing, nothing, nothing]
             //Then we map over the pointless elements (map will make a new array) in the array and for each empty element we have, we will return a
             //<BurgerIngredient />   
             // return [...Array(props.ingredients[ing])].map((_, index) => {
